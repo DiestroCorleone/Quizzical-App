@@ -148,7 +148,7 @@ export default function App() {
 
   return (
     <div>
-      {started ? (
+      {!started ? (
         <Start startGame={startGame} />
       ) : (
         <div className="questions-container">

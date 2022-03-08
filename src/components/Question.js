@@ -3,7 +3,6 @@ import React from 'react';
 export default function Question(props) {
   function setButtonClass(isSelected, isRight, isWrong) {
     if (isRight) {
-      console.log(isRight);
       return 'correct-answer';
     } else if (isSelected) {
       return 'selected-answer';

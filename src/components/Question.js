@@ -25,6 +25,7 @@ export default function Question(props) {
         >
           {props.answer1.answer}
         </li>
+        <br />
         <li
           className={setButtonClass(
             props.answer2.isSelected,
@@ -35,6 +36,7 @@ export default function Question(props) {
         >
           {props.answer2.answer}
         </li>
+        <br />
         <li
           className={setButtonClass(
             props.answer3.isSelected,
@@ -45,6 +47,7 @@ export default function Question(props) {
         >
           {props.answer3.answer}
         </li>
+        <br />
         <li
           className={setButtonClass(
             props.answer4.isSelected,
@@ -55,6 +58,7 @@ export default function Question(props) {
         >
           {props.answer4.answer}
         </li>
+        <br />
       </ul>
       <br />
       <hr />

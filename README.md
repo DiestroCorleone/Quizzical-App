@@ -1,14 +1,36 @@
 # Quizzical App!
 
-This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
+Bootstraped with a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
+Developed with [Stackblitz](https://stackblitz.com/), since my current PC doesn't support the most recent Node and NPM versions. You can access and fork the project [here](https://stackblitz.com/edit/react-fkh96h).
 
-## Deploy Your Own
+## [Play it!](https://quizzical-app-8bozbghr8-diestrocorleone.vercel.app/)
 
-Deploy your own Create React App project with Vercel.
+Trivia game using the [Open Trivia DB API](https://opentdb.com/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
+## About the project
 
-_Live Example: https://create-react-template.vercel.app/_
+App developed as part of [Bob Ziroll's React course on Scrimba](https://scrimba.com/learn/learnreact), totally recomended btw.
+Some parts were easy, others not so much. Got help from [@realtnt](https://github.com/realtnt), more precisely [this repo](https://github.com/realtnt/quizee).
+
+## Concepts applied
+
+* [useState](https://es.reactjs.org/docs/hooks-state.html)
+* [useEffect](https://es.reactjs.org/docs/hooks-effect.html)
+* [Array.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+* Some good ol' HTML and CSS.
+
+### Dependencies used
+
+* [nanoid](https://www.npmjs.com/package/nanoid) for key generation.
+* [array-shuffle](https://www.npmjs.com/package/array-shuffle) for, well, confetti when you win.
+* [html-entities](https://www.npmjs.com/package/html-entities) to translate some symbols from the API response.
+
+## To do
+
+- [ ] Change colors of correct unselected questions.
+- [ ] Disable selection once the game is over.
+- [ ] Save progress with localstorage, maybe?
+- [ ] Improve the styling.
 
 ## Available Scripts
 

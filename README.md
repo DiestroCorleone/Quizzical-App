@@ -22,7 +22,7 @@ Some parts were easy, others not so much. Got help from [@realtnt](https://githu
 ### Dependencies used
 
 * [nanoid](https://www.npmjs.com/package/nanoid) for key generation.
-* [array-shuffle](https://www.npmjs.com/package/array-shuffle) for, well, confetti when you win.
+* [array-shuffle](https://www.npmjs.com/package/array-shuffle) to shuffle array elements.
 * [html-entities](https://www.npmjs.com/package/html-entities) to translate some symbols from the API response.
 
 ## To do

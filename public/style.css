@@ -19,6 +19,13 @@ header {
   text-align: center;
 }
 
+select {
+  width: 70%;
+  padding: 0.5rem;
+  border: 1px solid #293264;
+  border-radius: 10px;
+}
+
 header button,
 .questions-container button {
   background-color: #293264;
@@ -45,7 +52,7 @@ li:hover {
 .questions-container {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
 }
 
@@ -100,4 +107,10 @@ li {
   width: 50%;
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+  ul {
+    flex-direction: column;
+  }
 }

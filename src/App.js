@@ -9,16 +9,46 @@ export default function App() {
   const [started, setStarted] = useState(false);
   const [newGame, setNewGame] = useState(false);
   const [endGame, setEndGame] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [cagetoryName, setCategoryName] = useState('');
   const [questions, setQuestions] = useState([]);
   const [allAnswersSelected, setAllAnswersSelected] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
 
+  function getCategories() {
+    fetch('https://opentdb.com/api_category.php')
+      .then((res) => res.json())
+      .then((json) => {
+        const allCategories = json.trivia_categories;
+        allCategories.map((category) => {
+          setCategories((prevCategories) => [
+            ...prevCategories,
+            {
+              id: category.id,
+              name: category.name,
+            },
+          ]);
+        });
+      })
+      .catch((error) => console.log('Error: ' + error));
+  }
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  function handleSelectCategory(category) {
+    const categoryId = categories.find((cat) => cat.name === category).id;
+    setCategoryName(category);
+    setSelectedCategory(categoryId);
+  }
+
   function getQuestions() {
-    fetch('https://opentdb.com/api.php?amount=5&type=multiple')
+    fetch(`https://opentdb.com/api.php?amount=5&category=${selectedCategory}`)
       .then((res) => res.json())
       .then((json) => {
         const results = json.results;
-
         for (let i = 0; i < results.length; i++) {
           const shuffledAnswers = arrayShuffle([
             {
@@ -74,7 +104,9 @@ export default function App() {
   }
 
   useEffect(() => {
-    getQuestions();
+    if (newGame) {
+      getQuestions();
+    }
   }, [newGame]);
 
   useEffect(() => {
@@ -104,6 +136,7 @@ export default function App() {
       setQuestions([]);
       setNewGame(true);
       setEndGame(false);
+      setStarted(false);
     } else {
       setQuestions((prevQuestions) => {
         prevQuestions.map((question) => {
@@ -123,11 +156,13 @@ export default function App() {
         });
         return [...prevQuestions];
       });
+      setNewGame(false);
       setEndGame(true);
     }
   }
 
   function startGame() {
+    setNewGame(true);
     setStarted(true);
   }
 
@@ -149,9 +184,14 @@ export default function App() {
   return (
     <div>
       {!started ? (
-        <Start startGame={startGame} />
+        <Start
+          startGame={startGame}
+          categories={categories}
+          handleSelectCategory={handleSelectCategory}
+        />
       ) : (
         <div className="questions-container">
+          <h3>{cagetoryName}</h3>
           {renderQuestions}
           <div className="col-full">
             <div className="col-half">

@@ -27,8 +27,8 @@ Some parts were easy, others not so much. Got help from [@realtnt](https://githu
 
 ## To do
 
-- [ ] Change colors of correct unselected questions.
-- [ ] Disable selection once the game is over.
+- [x] Change colors of correct unselected questions.
+- [x] Disable selection once the game is over.
 - [ ] Save progress with localstorage, maybe?
 - [ ] Improve the styling.
 

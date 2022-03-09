@@ -121,14 +121,16 @@ export default function App() {
   }, [questions]);
 
   function selectAnswer(id, questionId) {
-    setQuestions((prevQuestions) => {
-      let answers = prevQuestions.find(
-        (question) => question.questionId === questionId
-      ).answers;
-      answers.map((answer) => (answer.isSelected = false));
-      answers.find((answer) => answer.id === id).isSelected = true;
-      return [...prevQuestions];
-    });
+    if (!endGame) {
+      setQuestions((prevQuestions) => {
+        let answers = prevQuestions.find(
+          (question) => question.questionId === questionId
+        ).answers;
+        answers.map((answer) => (answer.isSelected = false));
+        answers.find((answer) => answer.id === id).isSelected = true;
+        return [...prevQuestions];
+      });
+    }
   }
 
   function checkAnswers() {
@@ -151,6 +153,11 @@ export default function App() {
             ) {
               answers[answer].isSelected = false;
               answers[answer].isWrong = true;
+            } else if (
+              !answers[answer].isSelected &&
+              answers[answer].isCorrect
+            ) {
+              answers[answer].isSelected = true;
             }
           }
         });

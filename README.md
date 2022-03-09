@@ -29,6 +29,7 @@ Some parts were easy, others not so much. Got help from [@realtnt](https://githu
 
 - [x] Change colors of correct unselected questions.
 - [x] Disable selection once the game is over.
+- [ ] Render only two answers when there are only two options (true or false).
 - [ ] Save progress with localstorage, maybe?
 - [ ] Improve the styling.
 
